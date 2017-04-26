@@ -1,0 +1,58 @@
+Firebase Setup:
+
+Create a new APP on Firebase console
+From Dashboard ...
+Goto DEVELOP / Authentication
+Click WEB SETUP
+    Copy the code:
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyCtvju3n57Eu5G7G2_RicFq6n5JejeJrXg",
+        authDomain: "ukmm-25682.firebaseapp.com",
+        databaseURL: "https://ukmm-25682.firebaseio.com",
+        storageBucket: "ukmm-25682.appspot.com",
+        messagingSenderId: "875119661736"
+    };
+    firebase.initializeApp(config);
+
+To enable Facebook Login via Firebase:
+
+Click on SIGN-IN METHOD
+    Enable Email/password
+    Enable Facebook - 
+        Provide Facebook App ID & App secret
+        And copy OAuth redirect URI provided: https://ukmm-25682.firebaseapp.com/__/auth/handler
+
+Facebook Setup:
+
+Create App
+From Dashboard: 
+    Copy App ID = 1722537668057600 & App Secret = a074783ad5074614e8efea72758b92ba for the above steps
+    
+PRODUCTS: +Add Product
+    Select Facebook Login
+    Add the OAuth redirect URI copied from Firebase above here
+    Provide the Deauthorise Callback URL to allow your system to know if anyone deauthorised
+
+Add Bundle ID for IOS & Package name for Android:
+
+Goto config.xml in ionic project and copy the id field:
+<widget id="com.santoshsingh.ukmm" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+
+Then go to Settings in Facebook App Dashboard
+Add Platform and select iOS and provide Bundle ID
+Add Platform and select Android and provide Package Name. If warning comes up ignore and use the package name.
+
+ionic2 Setup:
+
+First download and add facebook4 plugin with App ID above:
+
+ionic plugin add cordova-plugin-facebook4 --variable APP_ID="1722537668057600" --variable APP_NAME="UKMM"
+
+----------------- Firebase Push Notifications ----------------
+
+Go to Firebase console and create an APP
+Next to App Overview ... select Project Settings & then Cloud messaging
+Note down SERVER KEY & SENDER ID
+
+
